@@ -64,7 +64,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="Mnn-7P-4JN"/>
+                    <navigationItem key="navigationItem" id="Mnn-7P-4JN">
+                        <barButtonItem key="backBarButtonItem" title=" " id="vkP-h2-3oN"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
