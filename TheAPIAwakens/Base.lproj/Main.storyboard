@@ -23,14 +23,23 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxK-wv-wuI">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="193"/>
                                         <state key="normal" image="icon-characters"/>
+                                        <connections>
+                                            <segue destination="7Kf-JO-V9m" kind="show" id="Wjb-4F-YIF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dit-3Z-6q8">
                                         <rect key="frame" x="0.0" y="193" width="600" height="194"/>
                                         <state key="normal" image="icon-vehicles"/>
+                                        <connections>
+                                            <segue destination="7Kf-JO-V9m" kind="show" id="zgT-1b-AUI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ke-JZ-Ly0">
                                         <rect key="frame" x="0.0" y="387" width="600" height="193"/>
                                         <state key="normal" image="icon-starships"/>
+                                        <connections>
+                                            <segue destination="7Kf-JO-V9m" kind="show" id="RUV-3T-s5f"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -103,4 +112,7 @@
         <image name="icon-starships" width="100" height="100"/>
         <image name="icon-vehicles" width="100" height="100"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zgT-1b-AUI"/>
+    </inferredMetricsTieBreakers>
 </document>
