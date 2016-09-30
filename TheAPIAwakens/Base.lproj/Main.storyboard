@@ -67,6 +67,11 @@
                     <navigationItem key="navigationItem" id="Mnn-7P-4JN">
                         <barButtonItem key="backBarButtonItem" title=" " id="vkP-h2-3oN"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="charactersButton" destination="TxK-wv-wuI" id="8gp-CH-7Ca"/>
+                        <outlet property="starshipsButton" destination="9ke-JZ-Ly0" id="6YQ-Dx-P76"/>
+                        <outlet property="vehiclesButton" destination="dit-3Z-6q8" id="C1m-8l-RwG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
