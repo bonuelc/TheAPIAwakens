@@ -12,3 +12,14 @@ struct Planet {
     let name: String
     let diameter: String
 }
+
+extension Planet: JSONDecodable {
+    init?(JSON: [String : AnyObject]) {
+        guard let name = JSON["name"] as? String, diameter = JSON["diameter"] as? String else {
+            return nil
+        }
+        
+        self.name = name
+        self.diameter = diameter
+    }
+}
