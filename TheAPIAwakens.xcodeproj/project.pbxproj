@@ -18,6 +18,7 @@
 		85DE83101D9F0F3400C8FE45 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE830F1D9F0F3400C8FE45 /* Character.swift */; };
 		85DE83161DA00FC600C8FE45 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE83151DA00FC600C8FE45 /* Vehicle.swift */; };
 		85DE83181DA010D500C8FE45 /* Starship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE83171DA010D500C8FE45 /* Starship.swift */; };
+		85DE831A1DA0152400C8FE45 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DE83191DA0152400C8FE45 /* Planet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		85DE830F1D9F0F3400C8FE45 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		85DE83151DA00FC600C8FE45 /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		85DE83171DA010D500C8FE45 /* Starship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starship.swift; sourceTree = "<group>"; };
+		85DE83191DA0152400C8FE45 /* Planet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				85DE830F1D9F0F3400C8FE45 /* Character.swift */,
 				85DE83151DA00FC600C8FE45 /* Vehicle.swift */,
 				85DE83171DA010D500C8FE45 /* Starship.swift */,
+				85DE83191DA0152400C8FE45 /* Planet.swift */,
 				853742541D680F44002CCD36 /* Main.storyboard */,
 				853742571D680F44002CCD36 /* Assets.xcassets */,
 				853742591D680F44002CCD36 /* LaunchScreen.storyboard */,
@@ -156,6 +159,7 @@
 				85DE82EA1D9EC6D700C8FE45 /* StatisticsViewController.swift in Sources */,
 				853742531D680F44002CCD36 /* ViewController.swift in Sources */,
 				853742511D680F44002CCD36 /* AppDelegate.swift in Sources */,
+				85DE831A1DA0152400C8FE45 /* Planet.swift in Sources */,
 				85DE83101D9F0F3400C8FE45 /* Character.swift in Sources */,
 				85DE83161DA00FC600C8FE45 /* Vehicle.swift in Sources */,
 				85DE830C1D9EEC2900C8FE45 /* APIClient.swift in Sources */,
