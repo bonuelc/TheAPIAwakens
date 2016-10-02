@@ -62,4 +62,18 @@ final class SWAPIClient: APIClient {
             
             }, completion: completion)
     }
+    
+    
+    func fetchStarships(completion: APIResult<[Starship]> -> Void) {
+        
+        let endpoint = SWAPI.Starships
+        
+        fetch(endpoint, parse: { json -> [Starship]? in
+            
+            guard let starships = json[self.resultsKey] as? [[String: AnyObject]] else { return nil }
+            
+            return starships.flatMap { return Starship(JSON: $0) }
+            
+            }, completion: completion)
+    }
 }
