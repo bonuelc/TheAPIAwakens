@@ -8,6 +8,31 @@
 
 import Foundation
 
+enum SWAPI: Endpoint {
+    
+    case Characters
+    case Vehicles
+    case Starships
+    case Planet(apiIndex: Int)
+    
+    var baseURL: String {
+        return "https://swapi.co"
+    }
+    
+    var path: String {
+        switch self {
+        case .Characters: return "/api/people/"
+        case .Vehicles: return "/api/vehicles/"
+        case .Starships: return "/api/starships/"
+        case .Planet(let apiIndex): return "/api/planets/\(apiIndex)/"
+        }
+    }
+    
+    var parameters: [String : AnyObject] {
+        return [:]
+    }
+}
+
 final class SWAPIClient: APIClient {
     
     let configuration: NSURLSessionConfiguration
