@@ -35,6 +35,8 @@ enum SWAPI: Endpoint {
 
 final class SWAPIClient: APIClient {
     
+    let resultsKey = "results"
+    
     let configuration: NSURLSessionConfiguration
     lazy var session: NSURLSession = {
         return NSURLSession(configuration: self.configuration)
@@ -46,5 +48,18 @@ final class SWAPIClient: APIClient {
     
     convenience init() {
         self.init(configuration: .defaultSessionConfiguration())
+    }
+    
+    func fetchVehicles(completion: APIResult<[Vehicle]> -> Void) {
+        
+        let endpoint = SWAPI.Vehicles
+        
+        fetch(endpoint, parse: { json -> [Vehicle]? in
+        
+            guard let vehicles = json[self.resultsKey] as? [[String: AnyObject]] else { return nil }
+            
+            return vehicles.flatMap { return Vehicle(JSON: $0) }
+            
+            }, completion: completion)
     }
 }
