@@ -8,9 +8,13 @@
 
 import Foundation
 
-struct Planet {
+struct Planet: Entity {
     let name: String
     let diameter: String
+    
+    var size: Double? {
+        return Double(diameter) ?? Double(diameter.stringByReplacingOccurrencesOfString(",", withString: ""))
+    }
 }
 
 extension Planet: JSONDecodable {

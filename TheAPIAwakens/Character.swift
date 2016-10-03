@@ -8,13 +8,17 @@
 
 import Foundation
 
-struct Character {
+struct Character: Entity {
     let name: String
     let born: String
     let home: String
     let height: String
     let eyes: String
     let hair: String
+    
+    var size: Double? {
+        return Double(height) ?? Double(height.stringByReplacingOccurrencesOfString(",", withString: ""))
+    }
 }
 
 extension Character: JSONDecodable {

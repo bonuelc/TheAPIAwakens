@@ -8,13 +8,17 @@
 
 import Foundation
 
-struct Vehicle {
+struct Vehicle: Entity {
     let name: String
     let make: String
     let cost: String
     let length: String
     let `class`: String
     let crew: String
+    
+    var size: Double? {
+        return Double(length) ?? Double(length.stringByReplacingOccurrencesOfString(",", withString: ""))
+    }
 }
 
 extension Vehicle: JSONDecodable {
