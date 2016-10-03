@@ -17,6 +17,8 @@ class StatisticsViewController: UIViewController {
     
     var entityTypePicked: EntityType!
     
+    let swapiClient = SWAPIClient()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
