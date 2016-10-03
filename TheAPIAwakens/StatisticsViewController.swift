@@ -44,6 +44,33 @@ class StatisticsViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = entityTypePicked.rawValue
+        
+        // 'guard let' necessary b/c of Xcode compiler bug
+        guard let entityTypePicked = entityTypePicked else { fatalError() }
+        
+        switch entityTypePicked {
+        case .Characters:
+            swapiClient.fetchCharacters { result in
+                switch result {
+                case .Success(let characters): self.characters.appendContentsOf(characters)
+                case .Failure(let error): print(error)
+                }
+            }
+        case .Vehicles:
+            swapiClient.fetchVehicles { result in
+                switch result {
+                case .Success(let vehicles): self.vehicles.appendContentsOf(vehicles)
+                case .Failure(let error): print(error)
+                }
+            }
+        case .Starships:
+            swapiClient.fetchStarships { result in
+                switch result {
+                case .Success(let starships): self.starships.appendContentsOf(starships)
+                case .Failure(let error): print(error)
+                }
+            }
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
