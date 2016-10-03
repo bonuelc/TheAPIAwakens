@@ -15,6 +15,8 @@ class StatisticsViewController: UIViewController {
     @IBOutlet weak var showcaseTableView: UITableView!
     @IBOutlet weak var pickerView: UIPickerView!
     
+    var entityTypePicked: EntityType!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

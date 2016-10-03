@@ -10,3 +10,7 @@ protocol Entity {
     var name: String { get }
     var size: Double? { get }
 }
+
+enum EntityType: String {
+    case Characters, Vehicles, Starships
+}
