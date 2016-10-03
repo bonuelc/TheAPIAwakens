@@ -19,6 +19,21 @@ class StatisticsViewController: UIViewController {
     
     let swapiClient = SWAPIClient()
     
+    var characters: [Character] = [] {
+        didSet {
+        }
+    }
+    
+    var vehicles: [Vehicle] = [] {
+        didSet {
+        }
+    }
+    
+    var starships: [Starship] = [] {
+        didSet {
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
