@@ -77,3 +77,20 @@ class StatisticsViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }
+
+extension StatisticsViewController: UIPickerViewDataSource {
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        // 'guard let' necessary b/c of Xcode compiler bug
+        guard let entityTypePicked = entityTypePicked else { fatalError() }
+        
+        switch entityTypePicked {
+        case .Characters: return characters.count
+        case .Vehicles: return vehicles.count
+        case .Starships: return starships.count
+        }
+    }
+}
