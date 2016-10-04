@@ -10,6 +10,11 @@ import UIKit
 
 class StatisticsViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var memberStatisticsTableView: UITableView!
+    @IBOutlet weak var showcaseTableView: UITableView!
+    @IBOutlet weak var pickerView: UIPickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
