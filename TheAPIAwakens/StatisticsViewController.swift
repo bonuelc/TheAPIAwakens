@@ -45,6 +45,9 @@ class StatisticsViewController: UIViewController {
         
         navigationItem.title = entityTypePicked.rawValue
         
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        
         // 'guard let' necessary b/c of Xcode compiler bug
         guard let entityTypePicked = entityTypePicked else { fatalError() }
         
