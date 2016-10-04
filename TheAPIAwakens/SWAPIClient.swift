@@ -50,6 +50,20 @@ final class SWAPIClient: APIClient {
         self.init(configuration: .defaultSessionConfiguration())
     }
     
+    func fetchCharacters(completion: APIResult<[Character]> -> Void) {
+        
+        let endpoint = SWAPI.Characters
+        
+        fetch(endpoint, parse: { json -> [Character]? in
+            
+            guard let characters = json[self.resultsKey] as? [[String: AnyObject]] else { return nil }
+            
+            return characters.flatMap { return Character(JSON: $0) }
+            
+            }, completion: completion)
+    }
+
+    
     func fetchVehicles(completion: APIResult<[Vehicle]> -> Void) {
         
         let endpoint = SWAPI.Vehicles
