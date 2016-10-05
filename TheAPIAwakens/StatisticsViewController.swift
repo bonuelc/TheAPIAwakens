@@ -81,6 +81,60 @@ class StatisticsViewController: UIViewController {
     }
 }
 
+extension StatisticsViewController: UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        // 'guard let' necessary b/c of Xcode compiler bug
+        guard let entityTypePicked = entityTypePicked else { fatalError() }
+        
+        switch entityTypePicked {
+        case .Characters:
+            if characters.count != 0 {
+                let character = characters[pickerView.selectedRowInComponent(0)]
+                switch indexPath.row {
+                case 0: cell.textLabel?.text = character.born
+                case 1: cell.textLabel?.text = character.home.capitalizedString
+                case 2: cell.textLabel?.text = character.height
+                case 3: cell.textLabel?.text = character.eyes.capitalizedString
+                case 4: cell.textLabel?.text = character.hair.capitalizedString
+                default: break
+                }
+            }
+        case .Vehicles:
+            if vehicles.count != 0 {
+                let vehicle = vehicles[pickerView.selectedRowInComponent(0)]
+                switch indexPath.row {
+                case 0: cell.textLabel?.text = vehicle.make.capitalizedString
+                case 1: cell.textLabel?.text = vehicle.cost
+                case 2: cell.textLabel?.text = vehicle.length
+                case 3: cell.textLabel?.text = vehicle.`class`.capitalizedString
+                case 4: cell.textLabel?.text = vehicle.crew
+                default: break
+                }
+            }
+        case .Starships:
+            if starships.count != 0 {
+                let starship = starships[pickerView.selectedRowInComponent(0)]
+                switch indexPath.row {
+                case 0: cell.textLabel?.text = starship.make.capitalizedString
+                case 1: cell.textLabel?.text = starship.cost
+                case 2: cell.textLabel?.text = starship.length
+                case 3: cell.textLabel?.text = starship.`class`.capitalizedString
+                case 4: cell.textLabel?.text = starship.crew
+                default: break
+                }
+            }
+        }
+        
+        return cell
+    }
+}
+
 extension StatisticsViewController: UIPickerViewDataSource {
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
