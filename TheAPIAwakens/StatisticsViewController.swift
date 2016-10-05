@@ -45,6 +45,8 @@ class StatisticsViewController: UIViewController {
         
         navigationItem.title = entityTypePicked.rawValue
         
+        memberStatisticsTableView.dataSource = self
+        
         pickerView.dataSource = self
         pickerView.delegate = self
         
