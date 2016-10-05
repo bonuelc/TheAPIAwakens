@@ -109,4 +109,15 @@ extension StatisticsViewController: UIPickerViewDelegate {
         case .Starships: return starships[row].name
         }
     }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // 'guard let' necessary b/c of Xcode compiler bug
+        guard let entityTypePicked = entityTypePicked else { fatalError() }
+        
+        switch entityTypePicked {
+        case .Characters: nameLabel.text = characters[row].name
+        case .Vehicles: nameLabel.text = vehicles[row].name
+        case .Starships: nameLabel.text = starships[row].name
+        }
+    }
 }
