@@ -26,6 +26,11 @@ class StatisticsViewController: UIViewController {
             memberStatisticsTableView.reloadData()
             pickerView.reloadAllComponents()
             nameLabel.text = characters[pickerView.selectedRowInComponent(0)].name
+            
+            let charactersWithKnownSize = characters.filter{ $0.size != nil }
+            showcaseTableView.smallest = charactersWithKnownSize.minElement { $0.size < $1.size }
+            showcaseTableView.largest = charactersWithKnownSize.maxElement { $0.size < $1.size }
+            showcaseTableView.reloadData()
         }
     }
     
@@ -34,6 +39,11 @@ class StatisticsViewController: UIViewController {
             memberStatisticsTableView.reloadData()
             pickerView.reloadAllComponents()
             nameLabel.text = vehicles[pickerView.selectedRowInComponent(0)].name
+            
+            let vehiclesWithKnownSize = vehicles.filter{ $0.size != nil }
+            showcaseTableView.smallest = vehiclesWithKnownSize.minElement { $0.size < $1.size }
+            showcaseTableView.largest = vehiclesWithKnownSize.maxElement { $0.size < $1.size }
+            showcaseTableView.reloadData()
         }
     }
     
@@ -42,6 +52,11 @@ class StatisticsViewController: UIViewController {
             memberStatisticsTableView.reloadData()
             pickerView.reloadAllComponents()
             nameLabel.text = starships[pickerView.selectedRowInComponent(0)].name
+            
+            let starshipsWithKnownSize = starships.filter{ $0.size != nil }
+            showcaseTableView.smallest = starshipsWithKnownSize.minElement { $0.size < $1.size }
+            showcaseTableView.largest = starshipsWithKnownSize.maxElement { $0.size < $1.size }
+            showcaseTableView.reloadData()
         }
     }
     
@@ -54,6 +69,8 @@ class StatisticsViewController: UIViewController {
         
         pickerView.dataSource = self
         pickerView.delegate = self
+        
+        showcaseTableView.dataSource = showcaseTableView
         
         // 'guard let' necessary b/c of Xcode compiler bug
         guard let entityTypePicked = entityTypePicked else { fatalError() }
