@@ -8,14 +8,14 @@
 
 import UIKit
 
+let cellIdentifier = "statisticCell"
+
 class StatisticsViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var memberStatisticsTableView: UITableView!
-    @IBOutlet weak var showcaseTableView: UITableView!
+    @IBOutlet weak var showcaseTableView: ShowcaseTableView!
     @IBOutlet weak var pickerView: UIPickerView!
-    
-    let cellIdentifier = "statisticCell"
     
     var entityTypePicked: EntityType!
     

@@ -195,6 +195,44 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="KoA-Lb-4tJ"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="statisticCell" id="2dW-Cd-EV4" customClass="StatisticTableViewCell" customModule="TheAPIAwakens" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2dW-Cd-EV4" id="DHm-92-mh7">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smallest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiC-Cq-yvn">
+                                                    <rect key="frame" x="8" y="11" width="75" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="Fef-1H-YLg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entity Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjI-fw-mwA">
+                                                    <rect key="frame" x="86" y="11" width="506" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pjI-fw-mwA" firstAttribute="trailing" secondItem="DHm-92-mh7" secondAttribute="trailingMargin" id="1eb-2K-5v4"/>
+                                                <constraint firstItem="ZiC-Cq-yvn" firstAttribute="baseline" secondItem="pjI-fw-mwA" secondAttribute="baseline" id="dHa-a8-UxY"/>
+                                                <constraint firstItem="pjI-fw-mwA" firstAttribute="centerY" secondItem="DHm-92-mh7" secondAttribute="centerY" id="nnc-ga-pw9"/>
+                                                <constraint firstItem="pjI-fw-mwA" firstAttribute="leading" secondItem="ZiC-Cq-yvn" secondAttribute="trailing" constant="3" id="xi8-lD-hhP"/>
+                                                <constraint firstItem="ZiC-Cq-yvn" firstAttribute="leading" secondItem="DHm-92-mh7" secondAttribute="leadingMargin" id="ysk-Qw-iRq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="keyLabel" destination="ZiC-Cq-yvn" id="PB4-Gr-e6M"/>
+                                            <outlet property="valueLabel" destination="pjI-fw-mwA" id="ZFv-5C-2q5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Luke Skywalker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQH-rO-QM4">
                                 <rect key="frame" x="241" y="75" width="119" height="21"/>
