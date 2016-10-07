@@ -123,6 +123,10 @@ extension APIClient {
         task.resume()
     }
     
+    func fetch<T: JSONDecodable>(endpoint: Endpoint, parse: JSON -> T?, completion: APIResult<T> -> Void) {
+        fetch(endpoint.request, parse: parse, completion: completion)
+    }
+    
     func fetch<T: JSONDecodable>(endpoint: Endpoint, parse: JSON -> [T]?, completion: APIResult<[T]> -> Void) {
         
         let request = endpoint.request
