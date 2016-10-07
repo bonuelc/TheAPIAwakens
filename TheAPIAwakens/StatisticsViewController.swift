@@ -10,6 +10,16 @@ import UIKit
 
 let cellIdentifier = "statisticCell"
 
+extension Array {
+    var secondToLast: Element? {
+        if self.count > 1 {
+            return self[self.count - 2]
+        }
+        
+        return nil
+    }
+}
+
 class StatisticsViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -128,7 +138,18 @@ extension StatisticsViewController: UITableViewDataSource {
                     cell.valueLabel.text = character.born
                 case 1:
                     cell.keyLabel.text = "Home"
-                    cell.valueLabel.text = character.home.capitalizedString
+                    
+                    guard let planetNumber = character.home.componentsSeparatedByString("/").secondToLast, apiIndex = Int(planetNumber) else {
+                        cell.valueLabel.text = "unknown"
+                        return cell
+                    }
+                    
+                    swapiClient.fetchPlanet(apiIndex) { result in
+                        switch result {
+                        case .Success(let planet): cell.valueLabel.text = planet.name
+                        case .Failure(let error): print(error)
+                        }
+                    }
                 case 2:
                     cell.keyLabel.text = "Height"
                     cell.size = character.height
