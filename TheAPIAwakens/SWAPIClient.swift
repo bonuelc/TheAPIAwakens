@@ -90,4 +90,11 @@ final class SWAPIClient: APIClient {
             
             }, completion: completion)
     }
+    
+    func fetchPlanet(apiIndex: Int, completion: APIResult<Planet> -> Void) {
+        
+        let endpoint = SWAPI.Planet(apiIndex: apiIndex)
+        
+        fetch(endpoint, parse: { Planet(JSON: $0) }, completion: completion)
+    }
 }
