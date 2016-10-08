@@ -21,6 +21,7 @@ class StatisticsViewController: UIViewController {
     
     var characters: [Character] = [] {
         didSet {
+            memberStatisticsTableView.reloadData()
             pickerView.reloadAllComponents()
             nameLabel.text = characters[pickerView.selectedRowInComponent(0)].name
         }
@@ -28,6 +29,7 @@ class StatisticsViewController: UIViewController {
     
     var vehicles: [Vehicle] = [] {
         didSet {
+            memberStatisticsTableView.reloadData()
             pickerView.reloadAllComponents()
             nameLabel.text = vehicles[pickerView.selectedRowInComponent(0)].name
         }
@@ -35,6 +37,7 @@ class StatisticsViewController: UIViewController {
     
     var starships: [Starship] = [] {
         didSet {
+            memberStatisticsTableView.reloadData()
             pickerView.reloadAllComponents()
             nameLabel.text = starships[pickerView.selectedRowInComponent(0)].name
         }
@@ -175,5 +178,7 @@ extension StatisticsViewController: UIPickerViewDelegate {
         case .Vehicles: nameLabel.text = vehicles[row].name
         case .Starships: nameLabel.text = starships[row].name
         }
+        
+        memberStatisticsTableView.reloadData()
     }
 }
