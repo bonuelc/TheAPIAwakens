@@ -15,6 +15,8 @@ class StatisticsViewController: UIViewController {
     @IBOutlet weak var showcaseTableView: UITableView!
     @IBOutlet weak var pickerView: UIPickerView!
     
+    let cellIdentifier = "statisticCell"
+    
     var entityTypePicked: EntityType!
     
     let swapiClient = SWAPIClient()
@@ -92,7 +94,9 @@ extension StatisticsViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        guard let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? StatisticTableViewCell else {
+            return UITableViewCell()
+        }
         
         // 'guard let' necessary b/c of Xcode compiler bug
         guard let entityTypePicked = entityTypePicked else { fatalError() }
@@ -102,11 +106,21 @@ extension StatisticsViewController: UITableViewDataSource {
             if characters.count != 0 {
                 let character = characters[pickerView.selectedRowInComponent(0)]
                 switch indexPath.row {
-                case 0: cell.textLabel?.text = character.born
-                case 1: cell.textLabel?.text = character.home.capitalizedString
-                case 2: cell.textLabel?.text = character.height
-                case 3: cell.textLabel?.text = character.eyes.capitalizedString
-                case 4: cell.textLabel?.text = character.hair.capitalizedString
+                case 0:
+                    cell.keyLabel.text = "Born"
+                    cell.valueLabel.text = character.born
+                case 1:
+                    cell.keyLabel.text = "Home"
+                    cell.valueLabel.text = character.home.capitalizedString
+                case 2:
+                    cell.keyLabel.text = "Height"
+                    cell.size = character.height
+                case 3:
+                    cell.keyLabel.text = "Eyes"
+                    cell.valueLabel.text = character.eyes.capitalizedString
+                case 4:
+                    cell.keyLabel.text = "Hair"
+                    cell.valueLabel.text = character.hair.capitalizedString
                 default: break
                 }
             }
@@ -114,11 +128,21 @@ extension StatisticsViewController: UITableViewDataSource {
             if vehicles.count != 0 {
                 let vehicle = vehicles[pickerView.selectedRowInComponent(0)]
                 switch indexPath.row {
-                case 0: cell.textLabel?.text = vehicle.make.capitalizedString
-                case 1: cell.textLabel?.text = vehicle.cost
-                case 2: cell.textLabel?.text = vehicle.length
-                case 3: cell.textLabel?.text = vehicle.`class`.capitalizedString
-                case 4: cell.textLabel?.text = vehicle.crew
+                case 0:
+                    cell.keyLabel.text = "Make"
+                    cell.valueLabel.text = vehicle.make.capitalizedString
+                case 1:
+                    cell.keyLabel.text = "Cost"
+                    cell.cost = vehicle.cost
+                case 2:
+                    cell.keyLabel.text = "Length"
+                    cell.size = vehicle.length
+                case 3:
+                    cell.keyLabel.text = "Class"
+                    cell.valueLabel.text = vehicle.`class`.capitalizedString
+                case 4:
+                    cell.keyLabel.text = "Crew"
+                    cell.valueLabel.text = vehicle.crew
                 default: break
                 }
             }
@@ -126,11 +150,21 @@ extension StatisticsViewController: UITableViewDataSource {
             if starships.count != 0 {
                 let starship = starships[pickerView.selectedRowInComponent(0)]
                 switch indexPath.row {
-                case 0: cell.textLabel?.text = starship.make.capitalizedString
-                case 1: cell.textLabel?.text = starship.cost
-                case 2: cell.textLabel?.text = starship.length
-                case 3: cell.textLabel?.text = starship.`class`.capitalizedString
-                case 4: cell.textLabel?.text = starship.crew
+                case 0:
+                    cell.keyLabel.text = "Make"
+                    cell.valueLabel.text = starship.make.capitalizedString
+                case 1:
+                    cell.keyLabel.text = "Cost"
+                    cell.cost = starship.cost
+                case 2:
+                    cell.keyLabel.text = "Length"
+                    cell.size = starship.length
+                case 3:
+                    cell.keyLabel.text = "Class"
+                    cell.valueLabel.text = starship.`class`.capitalizedString
+                case 4:
+                    cell.keyLabel.text = "Crew"
+                    cell.valueLabel.text = starship.crew
                 default: break
                 }
             }
