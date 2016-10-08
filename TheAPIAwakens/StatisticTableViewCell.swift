@@ -8,6 +8,31 @@
 
 import UIKit
 
+extension String {
+    var english: String? {
+        
+        guard let oldValue = Double(self) else {
+            return nil
+        }
+        
+        let formatter = NSNumberFormatter()
+        formatter.maximumFractionDigits = 2
+        
+        return formatter.stringFromNumber(oldValue * 3.28084)
+    }
+    
+    var usd: String? {
+        guard let oldValue = Double(self) else {
+            return nil
+        }
+        
+        let formatter = NSNumberFormatter()
+        formatter.maximumFractionDigits = 2
+        
+        return formatter.stringFromNumber(oldValue * 3.28084)
+    }
+}
+
 class StatisticTableViewCell: UITableViewCell {
     @IBOutlet weak var keyLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
@@ -20,11 +45,13 @@ class StatisticTableViewCell: UITableViewCell {
         if let size = size {
             unitsSegmentedControl.setTitle("English", forSegmentAtIndex: 0)
             unitsSegmentedControl.setTitle("Metric", forSegmentAtIndex: 1)
+            valueLabel.text = unitsSegmentedControl.titleForSegmentAtIndex(unitsSegmentedControl.selectedSegmentIndex) == "English" ? (size.english ?? size) : size
             
             unitsSegmentedControl.hidden = false
         } else if let cost = cost {
             unitsSegmentedControl.setTitle("USD", forSegmentAtIndex: 0)
             unitsSegmentedControl.setTitle("Credits", forSegmentAtIndex: 1)
+            valueLabel.text = unitsSegmentedControl.titleForSegmentAtIndex(unitsSegmentedControl.selectedSegmentIndex) == "USD" ? (cost.usd ?? cost) : cost
             
             unitsSegmentedControl.hidden = false
         }
