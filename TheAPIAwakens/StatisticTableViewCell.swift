@@ -56,4 +56,18 @@ class StatisticTableViewCell: UITableViewCell {
             unitsSegmentedControl.hidden = false
         }
     }
+    
+    @IBAction func segmentedControlValueChanged(sender: UISegmentedControl) {
+        guard let workingUnit = sender.titleForSegmentAtIndex(sender.selectedSegmentIndex) else {
+            return
+        }
+        
+        switch workingUnit {
+        case "Metric": valueLabel.text = size
+        case "English": valueLabel.text = size?.english ?? size
+        case "Credits": valueLabel.text = cost
+        case "USD": valueLabel.text = cost?.usd ?? cost
+        default: break
+        }
+    }
 }

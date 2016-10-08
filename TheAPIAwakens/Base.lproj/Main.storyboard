@@ -129,7 +129,7 @@
                                 </constraints>
                                 <color key="sectionIndexBackgroundColor" red="0.1058823529" green="0.12549019610000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="statisticCell" id="qcR-ov-6X0" customClass="StatisticTableViewCell" customModule="TheAPIAwakens" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="statisticCell" id="qcR-ov-6X0">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qcR-ov-6X0" id="LBz-e0-0uB">
@@ -160,6 +160,9 @@
                                                         <segment title="Unit 1"/>
                                                         <segment title="Unit 2"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="segmentedControlValueChanged:" destination="qcR-ov-6X0" eventType="valueChanged" id="buP-24-SVE"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
