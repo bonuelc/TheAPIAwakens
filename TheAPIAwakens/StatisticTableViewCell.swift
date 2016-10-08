@@ -12,4 +12,7 @@ class StatisticTableViewCell: UITableViewCell {
     @IBOutlet weak var keyLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var unitsSegmentedControl: UISegmentedControl!
+    
+    var size: String?
+    var cost: String?
 }
