@@ -15,4 +15,18 @@ class StatisticTableViewCell: UITableViewCell {
     
     var size: String?
     var cost: String?
+    
+    override func layoutSubviews() {
+        if let size = size {
+            unitsSegmentedControl.setTitle("English", forSegmentAtIndex: 0)
+            unitsSegmentedControl.setTitle("Metric", forSegmentAtIndex: 1)
+            
+            unitsSegmentedControl.hidden = false
+        } else if let cost = cost {
+            unitsSegmentedControl.setTitle("USD", forSegmentAtIndex: 0)
+            unitsSegmentedControl.setTitle("Credits", forSegmentAtIndex: 1)
+            
+            unitsSegmentedControl.hidden = false
+        }
+    }
 }
