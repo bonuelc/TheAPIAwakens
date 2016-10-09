@@ -19,6 +19,8 @@ class StatisticsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = entityTypePicked.rawValue
     }
     
     override func viewWillDisappear(animated: Bool) {
