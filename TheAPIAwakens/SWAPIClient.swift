@@ -10,9 +10,9 @@ import Foundation
 
 enum SWAPI: Endpoint {
     
-    case Characters
-    case Vehicles
-    case Starships
+    case Characters(apiPageIndex: Int)
+    case Vehicles(apiPageIndex: Int)
+    case Starships(apiPageIndex: Int)
     case Planet(apiIndex: Int)
     
     var baseURL: String {
@@ -29,7 +29,12 @@ enum SWAPI: Endpoint {
     }
     
     var parameters: [String : AnyObject] {
-        return [:]
+        switch self {
+        case .Characters(let apiPageIndex): return apiPageIndex == 1 ?  [:] : ["page" : "\(apiPageIndex)"]
+        case .Vehicles(let apiPageIndex): return apiPageIndex == 1 ?  [:] : ["page" : "\(apiPageIndex)"]
+        case .Starships(let apiPageIndex): return apiPageIndex == 1 ?  [:] : ["page" : "\(apiPageIndex)"]
+        default: return [:]
+        }
     }
 }
 
@@ -50,9 +55,9 @@ final class SWAPIClient: APIClient {
         self.init(configuration: .defaultSessionConfiguration())
     }
     
-    func fetchCharacters(completion: APIResult<[Character]> -> Void) {
+    func fetchCharacters(apiPageIndex: Int, completion: APIResult<[Character]> -> Void) {
         
-        let endpoint = SWAPI.Characters
+        let endpoint = SWAPI.Characters(apiPageIndex: apiPageIndex)
         
         fetch(endpoint, parse: { json -> [Character]? in
             
@@ -64,9 +69,9 @@ final class SWAPIClient: APIClient {
     }
 
     
-    func fetchVehicles(completion: APIResult<[Vehicle]> -> Void) {
+    func fetchVehicles(apiPageIndex: Int, completion: APIResult<[Vehicle]> -> Void) {
         
-        let endpoint = SWAPI.Vehicles
+        let endpoint = SWAPI.Vehicles(apiPageIndex: apiPageIndex)
         
         fetch(endpoint, parse: { json -> [Vehicle]? in
         
@@ -78,9 +83,9 @@ final class SWAPIClient: APIClient {
     }
     
     
-    func fetchStarships(completion: APIResult<[Starship]> -> Void) {
+    func fetchStarships(apiPageIndex: Int, completion: APIResult<[Starship]> -> Void) {
         
-        let endpoint = SWAPI.Starships
+        let endpoint = SWAPI.Starships(apiPageIndex: apiPageIndex)
         
         fetch(endpoint, parse: { json -> [Starship]? in
             

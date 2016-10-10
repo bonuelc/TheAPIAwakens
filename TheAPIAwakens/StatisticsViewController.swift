@@ -117,8 +117,8 @@ class StatisticsViewController: UIViewController {
         presentViewController(alertController, animated: true, completion: nil)
     }
     
-    func fetchCharacters() {
-        swapiClient.fetchCharacters { result in
+    func fetchCharacters(apiPageIndex: Int = 1) {
+        swapiClient.fetchCharacters(apiPageIndex) { result in
             switch result {
             case .Success(let characters): self.characters.appendContentsOf(characters)
             case .Failure(let error as NSError): self.presentAlertController("Unable to retrieve \(self.entityTypePicked.rawValue.lowercaseString)", message: error.localizedDescription)
@@ -127,8 +127,8 @@ class StatisticsViewController: UIViewController {
         }
     }
     
-    func fetchVehicles() {
-        swapiClient.fetchVehicles { result in
+    func fetchVehicles(apiPageIndex: Int = 1) {
+        swapiClient.fetchVehicles(apiPageIndex) { result in
             switch result {
             case .Success(let vehicles): self.vehicles.appendContentsOf(vehicles)
             case .Failure(let error as NSError): self.presentAlertController("Unable to retrieve \(self.entityTypePicked.rawValue.lowercaseString)", message: error.localizedDescription)
@@ -137,8 +137,8 @@ class StatisticsViewController: UIViewController {
         }
     }
     
-    func fetchStarships() {
-        swapiClient.fetchStarships { result in
+    func fetchStarships(apiPageIndex: Int = 1) {
+        swapiClient.fetchStarships(apiPageIndex) { result in
             switch result {
             case .Success(let starships): self.starships.appendContentsOf(starships)
             case .Failure(let error as NSError): self.presentAlertController("Unable to retrieve \(self.entityTypePicked.rawValue.lowercaseString)", message: error.localizedDescription)
