@@ -86,33 +86,63 @@ class StatisticsViewController: UIViewController {
         guard let entityTypePicked = entityTypePicked else { fatalError() }
         
         switch entityTypePicked {
-        case .Characters:
-            swapiClient.fetchCharacters { result in
-                switch result {
-                case .Success(let characters): self.characters.appendContentsOf(characters)
-                case .Failure(let error): print(error)
-                }
-            }
-        case .Vehicles:
-            swapiClient.fetchVehicles { result in
-                switch result {
-                case .Success(let vehicles): self.vehicles.appendContentsOf(vehicles)
-                case .Failure(let error): print(error)
-                }
-            }
-        case .Starships:
-            swapiClient.fetchStarships { result in
-                switch result {
-                case .Success(let starships): self.starships.appendContentsOf(starships)
-                case .Failure(let error): print(error)
-                }
-            }
+        case .Characters: fetchCharacters()
+        case .Vehicles: fetchVehicles()
+        case .Starships: fetchStarships()
         }
     }
     
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    func presentAlertController(title: String, message: String?) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        let dismissAction = UIAlertAction(title: "OK", style: .Default) { [weak self] _ in
+            guard let navController = self!.navigationController else {
+                return
+            }
+            
+            navController.popViewControllerAnimated(true)
+        }
+        alertController.addAction(dismissAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func fetchCharacters() {
+        swapiClient.fetchCharacters { result in
+            switch result {
+            case .Success(let characters): self.characters.appendContentsOf(characters)
+            case .Failure(let error as NSError): self.presentAlertController("Unable to retrieve \(self.entityTypePicked.rawValue.lowercaseString)", message: error.localizedDescription)
+            default: break // TODO: why does the compiler think this is necessary?
+            }
+        }
+    }
+    
+    func fetchVehicles() {
+        swapiClient.fetchVehicles { result in
+            switch result {
+            case .Success(let vehicles): self.vehicles.appendContentsOf(vehicles)
+            case .Failure(let error as NSError): self.presentAlertController("Unable to retrieve \(self.entityTypePicked.rawValue.lowercaseString)", message: error.localizedDescription)
+            default: break // TODO: why does the compiler think this is necessary?
+            }
+        }
+    }
+    
+    func fetchStarships() {
+        swapiClient.fetchStarships { result in
+            switch result {
+            case .Success(let starships): self.starships.appendContentsOf(starships)
+            case .Failure(let error as NSError): self.presentAlertController("Unable to retrieve \(self.entityTypePicked.rawValue.lowercaseString)", message: error.localizedDescription)
+            default: break // TODO: why does the compiler think this is necessary?
+            }
+        }
+    }
+    
+    
 }
 
 extension StatisticsViewController: UITableViewDataSource {
