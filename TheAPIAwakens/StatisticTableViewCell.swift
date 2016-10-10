@@ -54,6 +54,9 @@ class StatisticTableViewCell: UITableViewCell {
             valueLabel.text = unitsSegmentedControl.titleForSegmentAtIndex(unitsSegmentedControl.selectedSegmentIndex) == "USD" ? (cost.usd ?? cost) : cost
             
             unitsSegmentedControl.hidden = false
+        } else {
+            valueLabel.translatesAutoresizingMaskIntoConstraints = false
+            valueLabel.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor).active = true
         }
     }
     
