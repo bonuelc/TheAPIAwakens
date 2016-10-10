@@ -21,16 +21,22 @@ class StatisticsViewController: UIViewController {
     
     var characters: [Character] = [] {
         didSet {
+            pickerView.reloadAllComponents()
+            nameLabel.text = characters[pickerView.selectedRowInComponent(0)].name
         }
     }
     
     var vehicles: [Vehicle] = [] {
         didSet {
+            pickerView.reloadAllComponents()
+            nameLabel.text = vehicles[pickerView.selectedRowInComponent(0)].name
         }
     }
     
     var starships: [Starship] = [] {
         didSet {
+            pickerView.reloadAllComponents()
+            nameLabel.text = starships[pickerView.selectedRowInComponent(0)].name
         }
     }
     
