@@ -73,6 +73,9 @@ class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // avoid 'index out of range error' before data fetch is complete
+        pickerView.userInteractionEnabled = false
+        
         navigationItem.title = entityTypePicked.rawValue
         
         memberStatisticsTableView.dataSource = self
@@ -90,6 +93,8 @@ class StatisticsViewController: UIViewController {
         case .Vehicles: fetchVehicles()
         case .Starships: fetchStarships()
         }
+        
+        pickerView.userInteractionEnabled = true
     }
     
     override func viewWillDisappear(animated: Bool) {
