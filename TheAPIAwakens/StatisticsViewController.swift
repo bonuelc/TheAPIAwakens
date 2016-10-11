@@ -120,8 +120,13 @@ class StatisticsViewController: UIViewController {
     func fetchCharacters(apiPageIndex: Int = 1) {
         swapiClient.fetchCharacters(apiPageIndex) { result in
             switch result {
-            case .Success(let characters): self.characters.appendContentsOf(characters)
-            case .Failure(let error as NSError): self.presentAlertController("Unable to retrieve \(self.entityTypePicked.rawValue.lowercaseString)", message: error.localizedDescription)
+            case .Success(let characters):
+                 self.characters.appendContentsOf(characters)
+                self.fetchCharacters(apiPageIndex + 1)
+            case .Failure(let error as NSError):
+                if apiPageIndex == 1 {
+                    self.presentAlertController("Unable to retrieve \(self.entityTypePicked.rawValue.lowercaseString)", message: error.localizedDescription)
+                }
             default: break // TODO: why does the compiler think this is necessary?
             }
         }
@@ -130,8 +135,13 @@ class StatisticsViewController: UIViewController {
     func fetchVehicles(apiPageIndex: Int = 1) {
         swapiClient.fetchVehicles(apiPageIndex) { result in
             switch result {
-            case .Success(let vehicles): self.vehicles.appendContentsOf(vehicles)
-            case .Failure(let error as NSError): self.presentAlertController("Unable to retrieve \(self.entityTypePicked.rawValue.lowercaseString)", message: error.localizedDescription)
+            case .Success(let vehicles):
+                self.vehicles.appendContentsOf(vehicles)
+                self.fetchVehicles(apiPageIndex + 1)
+            case .Failure(let error as NSError):
+                if apiPageIndex == 1 {
+                    self.presentAlertController("Unable to retrieve \(self.entityTypePicked.rawValue.lowercaseString)", message: error.localizedDescription)
+                }
             default: break // TODO: why does the compiler think this is necessary?
             }
         }
@@ -140,8 +150,13 @@ class StatisticsViewController: UIViewController {
     func fetchStarships(apiPageIndex: Int = 1) {
         swapiClient.fetchStarships(apiPageIndex) { result in
             switch result {
-            case .Success(let starships): self.starships.appendContentsOf(starships)
-            case .Failure(let error as NSError): self.presentAlertController("Unable to retrieve \(self.entityTypePicked.rawValue.lowercaseString)", message: error.localizedDescription)
+            case .Success(let starships):
+                self.starships.appendContentsOf(starships)
+                self.fetchStarships(apiPageIndex + 1)
+            case .Failure(let error as NSError):
+                if apiPageIndex == 1 {
+                    self.presentAlertController("Unable to retrieve \(self.entityTypePicked.rawValue.lowercaseString)", message: error.localizedDescription)
+                }
             default: break // TODO: why does the compiler think this is necessary?
             }
         }
