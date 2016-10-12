@@ -40,6 +40,7 @@ class StatisticTableViewCell: UITableViewCell {
     
     var size: String?
     var cost: String?
+    var exchangeRate: Double?
     
     override func layoutSubviews() {
         if let size = size {
