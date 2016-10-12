@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ExchangeRateDelegate {
+    var exchangeRate: Double { get set }
+}
+
 let cellIdentifier = "statisticCell"
 
 extension Array {
@@ -20,7 +24,7 @@ extension Array {
     }
 }
 
-class StatisticsViewController: UIViewController {
+class StatisticsViewController: UIViewController, ExchangeRateDelegate {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var memberStatisticsTableView: UITableView!
@@ -30,6 +34,11 @@ class StatisticsViewController: UIViewController {
     var entityTypePicked: EntityType!
     
     let swapiClient = SWAPIClient()
+    var exchangeRate: Double = 1.01 {
+        didSet {
+            memberStatisticsTableView.reloadData()
+        }
+    }
     
     var characters: [Character] = [] {
         didSet {
