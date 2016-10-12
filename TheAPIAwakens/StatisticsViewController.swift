@@ -179,13 +179,7 @@ class StatisticsViewController: UIViewController, ExchangeRateDelegate {
 extension StatisticsViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        // 'guard let' necessary b/c of Xcode compiler bug
-        guard let entityTypePicked = entityTypePicked else { fatalError() }
-        
-        switch entityTypePicked {
-        case .Characters: return 5
-        case .Vehicles, .Starships: return 6
-        }
+        return 6
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -227,6 +221,11 @@ extension StatisticsViewController: UITableViewDataSource {
                 case 4:
                     cell.keyLabel.text = "Hair"
                     cell.valueLabel.text = character.hair.capitalizedString
+                case 5:
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier("ridesCell") else {
+                        return UITableViewCell()
+                    }
+                    return cell
                 default: break
                 }
             }
