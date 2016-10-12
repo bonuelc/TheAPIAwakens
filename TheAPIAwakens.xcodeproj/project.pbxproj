@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		85255E4D1DA6C9A500728CFC /* ShowcaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85255E4C1DA6C9A500728CFC /* ShowcaseTableView.swift */; };
+		8528C6111DAECFF10063AC33 /* RidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8528C6101DAECFF10063AC33 /* RidesViewController.swift */; };
 		853742511D680F44002CCD36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853742501D680F44002CCD36 /* AppDelegate.swift */; };
 		853742531D680F44002CCD36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853742521D680F44002CCD36 /* ViewController.swift */; };
 		853742561D680F44002CCD36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 853742541D680F44002CCD36 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		85255E4C1DA6C9A500728CFC /* ShowcaseTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowcaseTableView.swift; sourceTree = "<group>"; };
+		8528C6101DAECFF10063AC33 /* RidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidesViewController.swift; sourceTree = "<group>"; };
 		8537424D1D680F44002CCD36 /* TheAPIAwakens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheAPIAwakens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		853742501D680F44002CCD36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		853742521D680F44002CCD36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				85C653DB1DA5ADCD00688C22 /* StatisticTableViewCell.swift */,
 				855601821DAD52A7002EF683 /* ConversionTableViewCell.swift */,
 				85255E4C1DA6C9A500728CFC /* ShowcaseTableView.swift */,
+				8528C6101DAECFF10063AC33 /* RidesViewController.swift */,
 				85DE830B1D9EEC2900C8FE45 /* APIClient.swift */,
 				85DE830D1D9EF0F900C8FE45 /* SWAPIClient.swift */,
 				8546C24F1DA3062900FEB1B8 /* Entity.swift */,
@@ -180,6 +183,7 @@
 				8546C2501DA3062900FEB1B8 /* Entity.swift in Sources */,
 				85DE830C1D9EEC2900C8FE45 /* APIClient.swift in Sources */,
 				85DE830E1D9EF0F900C8FE45 /* SWAPIClient.swift in Sources */,
+				8528C6111DAECFF10063AC33 /* RidesViewController.swift in Sources */,
 				85DE83181DA010D500C8FE45 /* Starship.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
