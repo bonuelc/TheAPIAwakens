@@ -239,12 +239,18 @@ extension StatisticsViewController: UITableViewDataSource {
                     cell.keyLabel.text = "Cost"
                     cell.cost = vehicle.cost
                 case 2:
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier("conversionCell") as? ConversionTableViewCell else {
+                        return UITableViewCell()
+                    }
+                    cell.delegate = self
+                    return cell
+                case 3:
                     cell.keyLabel.text = "Length"
                     cell.size = vehicle.length
-                case 3:
+                case 4:
                     cell.keyLabel.text = "Class"
                     cell.valueLabel.text = vehicle.`class`.capitalizedString
-                case 4:
+                case 5:
                     cell.keyLabel.text = "Crew"
                     cell.valueLabel.text = vehicle.crew
                 default: break
@@ -261,12 +267,18 @@ extension StatisticsViewController: UITableViewDataSource {
                     cell.keyLabel.text = "Cost"
                     cell.cost = starship.cost
                 case 2:
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier("conversionCell") as? ConversionTableViewCell else {
+                        return UITableViewCell()
+                    }
+                    cell.delegate = self
+                    return cell
+                case 3:
                     cell.keyLabel.text = "Length"
                     cell.size = starship.length
-                case 3:
+                case 4:
                     cell.keyLabel.text = "Class"
                     cell.valueLabel.text = starship.`class`.capitalizedString
-                case 4:
+                case 5:
                     cell.keyLabel.text = "Crew"
                     cell.valueLabel.text = starship.crew
                 default: break
