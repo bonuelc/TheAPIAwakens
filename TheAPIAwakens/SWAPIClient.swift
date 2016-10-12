@@ -13,6 +13,10 @@ enum SWAPI: Endpoint {
     case Characters(apiPageIndex: Int)
     case Vehicles(apiPageIndex: Int)
     case Starships(apiPageIndex: Int)
+    
+    case Character(apiIndex: Int)
+    case Vehicle(apiIndex: Int)
+    case Starship(apiIndex: Int)
     case Planet(apiIndex: Int)
     
     var baseURL: String {
@@ -24,6 +28,10 @@ enum SWAPI: Endpoint {
         case .Characters: return "/api/people/"
         case .Vehicles: return "/api/vehicles/"
         case .Starships: return "/api/starships/"
+        
+        case .Character(let apiIndex): return "/api/people/\(apiIndex)/"
+        case .Vehicle(let apiIndex): return "/api/vehicles/\(apiIndex)/"
+        case .Starship(let apiIndex): return "/api/starships/\(apiIndex)/"
         case .Planet(let apiIndex): return "/api/planets/\(apiIndex)/"
         }
     }
