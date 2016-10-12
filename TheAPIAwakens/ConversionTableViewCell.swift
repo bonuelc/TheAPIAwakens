@@ -44,6 +44,13 @@ class ConversionTableViewCell: UITableViewCell {
 
 extension ConversionTableViewCell: UITextFieldDelegate {
     
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        
+        // save the last input in case user enters nothing for the exchange rate
+        lastValue = Double(textField.text!)!
+        return true
+    }
+    
     func textFieldDidEndEditing(textField: UITextField) {
         setExchangeRate()
     }
