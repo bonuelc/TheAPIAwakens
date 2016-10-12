@@ -111,6 +111,7 @@
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jEN-Vd-ydE">
                                 <rect key="frame" x="0.0" y="327" width="600" height="185"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="SLR-1s-dyL"/>
                                 </constraints>
@@ -176,10 +177,51 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1058823529" green="0.12549019610000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="keyLabel" destination="hj1-y6-tYw" id="LXE-TF-0zX"/>
                                             <outlet property="unitsSegmentedControl" destination="ama-wo-gDa" id="qgu-zR-y1U"/>
                                             <outlet property="valueLabel" destination="HMa-YB-UfK" id="q0J-7s-Dml"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="conversionCell" id="9QX-FB-i9f" customClass="ConversionTableViewCell" customModule="TheAPIAwakens" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9QX-FB-i9f" id="xpm-fY-Exm">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.01" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jOC-VJ-RUN">
+                                                    <rect key="frame" x="159" y="7" width="390" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6G-aH-LWd">
+                                                    <rect key="frame" x="557" y="11" width="35" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Galactic Credits 1 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2s-V3-OeU">
+                                                    <rect key="frame" x="8" y="11" width="143" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="d2s-V3-OeU" firstAttribute="centerY" secondItem="xpm-fY-Exm" secondAttribute="centerY" id="Dfi-OA-ERz"/>
+                                                <constraint firstItem="d2s-V3-OeU" firstAttribute="leading" secondItem="xpm-fY-Exm" secondAttribute="leadingMargin" id="Feo-kc-ySB"/>
+                                                <constraint firstItem="jOC-VJ-RUN" firstAttribute="centerY" secondItem="F6G-aH-LWd" secondAttribute="centerY" id="OAe-hY-Jcz"/>
+                                                <constraint firstItem="F6G-aH-LWd" firstAttribute="leading" secondItem="jOC-VJ-RUN" secondAttribute="trailing" constant="8" symbolic="YES" id="RbG-rQ-2A3"/>
+                                                <constraint firstItem="jOC-VJ-RUN" firstAttribute="leading" secondItem="d2s-V3-OeU" secondAttribute="trailing" constant="8" symbolic="YES" id="bvV-LH-ggl"/>
+                                                <constraint firstItem="d2s-V3-OeU" firstAttribute="baseline" secondItem="F6G-aH-LWd" secondAttribute="baseline" id="j2V-Zo-X5u"/>
+                                                <constraint firstItem="F6G-aH-LWd" firstAttribute="trailing" secondItem="xpm-fY-Exm" secondAttribute="trailingMargin" id="vjY-O4-pn5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.1058823529" green="0.12549019610000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="decimalPadTextField" destination="jOC-VJ-RUN" id="qF7-9x-9he"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -245,6 +287,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1058823529" green="0.12549019610000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="sMF-bw-xBj" firstAttribute="leading" secondItem="6r6-Qf-ZPc" secondAttribute="leading" id="ELN-5o-6zt"/>
                             <constraint firstItem="P8e-wm-4rW" firstAttribute="top" secondItem="sMF-bw-xBj" secondAttribute="bottom" id="GFt-DG-F0Y"/>
