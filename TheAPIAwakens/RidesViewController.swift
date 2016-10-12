@@ -10,6 +10,16 @@ import UIKit
 
 class RidesViewController: UIViewController {
     
+    let swapiClient = SWAPIClient()
+    
+    var character: Character!
+    
+    var rides: [String] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
