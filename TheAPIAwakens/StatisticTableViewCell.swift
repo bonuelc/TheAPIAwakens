@@ -21,15 +21,16 @@ extension String {
         return formatter.stringFromNumber(oldValue * 3.28084)
     }
     
-    var usd: String? {
-        guard let oldValue = Double(self) else {
+    func usd(exchangeRate: Double?) -> String? {
+        
+        guard let oldValue = Double(self), exchangeRate = exchangeRate else {
             return nil
         }
         
         let formatter = NSNumberFormatter()
         formatter.maximumFractionDigits = 2
         
-        return formatter.stringFromNumber(oldValue * 3.28084)
+        return formatter.stringFromNumber(oldValue * exchangeRate)
     }
 }
 
@@ -52,7 +53,7 @@ class StatisticTableViewCell: UITableViewCell {
         } else if let cost = cost {
             unitsSegmentedControl.setTitle("USD", forSegmentAtIndex: 0)
             unitsSegmentedControl.setTitle("Credits", forSegmentAtIndex: 1)
-            valueLabel.text = unitsSegmentedControl.titleForSegmentAtIndex(unitsSegmentedControl.selectedSegmentIndex) == "USD" ? (cost.usd ?? cost) : cost
+            valueLabel.text = unitsSegmentedControl.titleForSegmentAtIndex(unitsSegmentedControl.selectedSegmentIndex) == "USD" ? (cost.usd(exchangeRate) ?? cost) : cost
             
             unitsSegmentedControl.hidden = false
         } else {
@@ -70,7 +71,7 @@ class StatisticTableViewCell: UITableViewCell {
         case "Metric": valueLabel.text = size
         case "English": valueLabel.text = size?.english ?? size
         case "Credits": valueLabel.text = cost
-        case "USD": valueLabel.text = cost?.usd ?? cost
+        case "USD": valueLabel.text = cost?.usd(exchangeRate) ?? cost
         default: break
         }
     }
