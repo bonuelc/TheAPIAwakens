@@ -26,6 +26,53 @@ class RidesViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        
+        fetchRides()
+    }
+    
+    func fetchRides() {
+        fetchVehicles()
+        fetchStarships()
+    }
+    
+    func fetchVehicles() {
+        
+        for endpoint in character.vehicleEndpoints {
+            
+            guard let apiIndexString = endpoint.componentsSeparatedByString("/").secondToLast, apiIndex = Int(apiIndexString) else {
+                continue
+            }
+            
+            swapiClient.fetchVehicle(apiIndex) { result in
+                
+                switch result {
+                case .Success(let vehicle): self.rides.append(vehicle.name)
+                case .Failure(let error as NSError): print("Unable to retrieve \(endpoint). \(error.localizedDescription)")
+                default: break
+                }
+                
+            }
+        }
+    }
+    
+    func fetchStarships() {
+        
+        for endpoint in character.starshipEndpoints {
+            
+            guard let apiIndexString = endpoint.componentsSeparatedByString("/").secondToLast, apiIndex = Int(apiIndexString) else {
+                continue
+            }
+            
+            swapiClient.fetchStarship(apiIndex) { result in
+                
+                switch result {
+                case .Success(let starship): self.rides.append(starship.name)
+                case .Failure(let error as NSError): print("Unable to retrieve \(endpoint). \(error.localizedDescription)")
+                default: break
+                }
+                
+            }
+        }
     }
 }
 
