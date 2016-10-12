@@ -15,6 +15,8 @@ struct Character: Entity {
     let height: String
     let eyes: String
     let hair: String
+    let vehicleEndpoints: [String]
+    let starshipEndpoints: [String]
     
     var size: Double? {
         return Double(height) ?? Double(height.stringByReplacingOccurrencesOfString(",", withString: ""))
@@ -23,7 +25,7 @@ struct Character: Entity {
 
 extension Character: JSONDecodable {
     init?(JSON: [String : AnyObject]) {
-        guard let name = JSON["name"] as? String, born = JSON["birth_year"] as? String, homeworld = JSON["homeworld"] as? String, height = JSON["height"] as? String, eyes = JSON["eye_color"] as? String, hair = JSON["hair_color"] as? String else {
+        guard let name = JSON["name"] as? String, born = JSON["birth_year"] as? String, homeworld = JSON["homeworld"] as? String, height = JSON["height"] as? String, eyes = JSON["eye_color"] as? String, hair = JSON["hair_color"] as? String, vehicleEndpoints = JSON["vehicles"] as? [String], starshipsEndpoints = JSON["starships"] as? [String] else {
             return nil
         }
         
@@ -33,5 +35,7 @@ extension Character: JSONDecodable {
         self.height = height
         self.eyes = eyes
         self.hair = hair
+        self.vehicleEndpoints = vehicleEndpoints
+        self.starshipEndpoints = starshipsEndpoints
     }
 }
