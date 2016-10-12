@@ -104,6 +104,27 @@ final class SWAPIClient: APIClient {
             }, completion: completion)
     }
     
+    func fetchCharacter(apiIndex: Int, completion: APIResult<Character> -> Void) {
+        
+        let endpoint = SWAPI.Character(apiIndex: apiIndex)
+        
+        fetch(endpoint, parse: { Character(JSON: $0) }, completion: completion)
+    }
+    
+    func fetchVehicle(apiIndex: Int, completion: APIResult<Vehicle> -> Void) {
+        
+        let endpoint = SWAPI.Vehicle(apiIndex: apiIndex)
+        
+        fetch(endpoint, parse: { Vehicle(JSON: $0) }, completion: completion)
+    }
+    
+    func fetchStarship(apiIndex: Int, completion: APIResult<Starship> -> Void) {
+        
+        let endpoint = SWAPI.Starship(apiIndex: apiIndex)
+        
+        fetch(endpoint, parse: { Starship(JSON: $0) }, completion: completion)
+    }
+    
     func fetchPlanet(apiIndex: Int, completion: APIResult<Planet> -> Void) {
         
         let endpoint = SWAPI.Planet(apiIndex: apiIndex)
