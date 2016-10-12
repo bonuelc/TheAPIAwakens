@@ -9,5 +9,8 @@
 import UIKit
 
 class ConversionTableViewCell: UITableViewCell {
+
+    var delegate: ExchangeRateDelegate!
+    
     @IBOutlet weak var decimalPadTextField: UITextField!
 }
