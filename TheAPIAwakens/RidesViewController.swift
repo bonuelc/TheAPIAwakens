@@ -26,3 +26,19 @@ class RidesViewController: UIViewController {
         super.viewDidLoad()
     }
 }
+
+extension RidesViewController: UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rides.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        
+        cell.textLabel?.text = "\(rides[indexPath.row])"
+        
+        return cell
+    }
+}
