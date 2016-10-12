@@ -110,6 +110,13 @@ class StatisticsViewController: UIViewController, ExchangeRateDelegate {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let ridesVC = segue.destinationViewController as? RidesViewController {
+            ridesVC.character = characters[pickerView.selectedRowInComponent(0)]
+        }
+    }
+    
     func presentAlertController(title: String, message: String?) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
