@@ -238,6 +238,7 @@ extension StatisticsViewController: UITableViewDataSource {
                 case 1:
                     cell.keyLabel.text = "Cost"
                     cell.cost = vehicle.cost
+                    cell.exchangeRate = exchangeRate
                 case 2:
                     guard let cell = tableView.dequeueReusableCellWithIdentifier("conversionCell") as? ConversionTableViewCell else {
                         return UITableViewCell()
@@ -266,6 +267,7 @@ extension StatisticsViewController: UITableViewDataSource {
                 case 1:
                     cell.keyLabel.text = "Cost"
                     cell.cost = starship.cost
+                    cell.exchangeRate = exchangeRate
                 case 2:
                     guard let cell = tableView.dequeueReusableCellWithIdentifier("conversionCell") as? ConversionTableViewCell else {
                         return UITableViewCell()
