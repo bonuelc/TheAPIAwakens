@@ -167,7 +167,14 @@ class StatisticsViewController: UIViewController {
 
 extension StatisticsViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        
+        // 'guard let' necessary b/c of Xcode compiler bug
+        guard let entityTypePicked = entityTypePicked else { fatalError() }
+        
+        switch entityTypePicked {
+        case .Characters: return 5
+        case .Vehicles, .Starships: return 6
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
