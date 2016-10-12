@@ -296,6 +296,9 @@
                             <constraint firstAttribute="trailing" secondItem="sMF-bw-xBj" secondAttribute="trailing" id="vCG-Em-u5w"/>
                             <constraint firstItem="jEN-Vd-ydE" firstAttribute="top" secondItem="fSq-06-vO8" secondAttribute="bottom" id="zcl-nv-z16"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Sxj-rG-KAX" appends="YES" id="QKv-f8-YKQ"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="memberStatisticsTableView" destination="fSq-06-vO8" id="mRN-0k-DYx"/>
@@ -305,6 +308,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5be-BK-CxP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="Sxj-rG-KAX">
+                    <connections>
+                        <action selector="viewTapped:" destination="7Kf-JO-V9m" id="ss1-DN-Gao"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1989" y="386"/>
         </scene>
