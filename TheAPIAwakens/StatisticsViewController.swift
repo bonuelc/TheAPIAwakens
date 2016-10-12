@@ -171,7 +171,9 @@ class StatisticsViewController: UIViewController, ExchangeRateDelegate {
         }
     }
     
-    
+    @IBAction func viewTapped(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 }
 
 extension StatisticsViewController: UITableViewDataSource {
