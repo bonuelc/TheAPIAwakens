@@ -20,6 +20,8 @@ class ConversionTableViewCell: UITableViewCell {
         
         super.awakeFromNib()
         
+        decimalPadTextField.delegate = self
+        
         revertExchangeRate()
         
         setExchangeRate()
@@ -37,5 +39,12 @@ class ConversionTableViewCell: UITableViewCell {
     
     func revertExchangeRate() {
         decimalPadTextField.text = "\(lastValue)"
+    }
+}
+
+extension ConversionTableViewCell: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        setExchangeRate()
     }
 }
