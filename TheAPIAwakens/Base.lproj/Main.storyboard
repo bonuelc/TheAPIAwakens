@@ -338,7 +338,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="U98-hV-4Jp" firstAttribute="top" secondItem="YrU-7L-oUI" secondAttribute="bottom" constant="8" symbolic="YES" id="M0i-vG-FSP"/>
+                            <constraint firstItem="U98-hV-4Jp" firstAttribute="top" secondItem="YrU-7L-oUI" secondAttribute="bottom" constant="-64" id="M0i-vG-FSP"/>
                             <constraint firstAttribute="trailing" secondItem="U98-hV-4Jp" secondAttribute="trailing" id="WAm-jf-LmO"/>
                             <constraint firstItem="U98-hV-4Jp" firstAttribute="leading" secondItem="76X-a4-tGf" secondAttribute="leading" id="bT9-zN-TxS"/>
                             <constraint firstItem="U98-hV-4Jp" firstAttribute="bottom" secondItem="Fna-gN-T7f" secondAttribute="top" id="fp5-Eq-81P"/>
