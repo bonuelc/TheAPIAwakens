@@ -107,6 +107,9 @@ class StatisticsViewController: UIViewController, ExchangeRateDelegate {
     }
     
     override func viewWillDisappear(animated: Bool) {
+        
+        if let _ = memberStatisticsTableView.indexPathForSelectedRow { return }
+        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
