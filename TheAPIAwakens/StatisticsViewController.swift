@@ -88,6 +88,7 @@ class StatisticsViewController: UIViewController, ExchangeRateDelegate {
         navigationItem.title = entityTypePicked.rawValue
         
         memberStatisticsTableView.dataSource = self
+        memberStatisticsTableView.delegate = self
         
         pickerView.dataSource = self
         pickerView.delegate = self
@@ -300,6 +301,26 @@ extension StatisticsViewController: UITableViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension StatisticsViewController: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        guard let _ = tableView.dequeueReusableCellWithIdentifier("ridesCell") else {
+            return
+        }
+        
+        performSegueWithIdentifier("ridesSegue", sender: nil)
+    }
+    
+    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        
+        // 'guard let' necessary b/c of Xcode compiler bug
+        guard let entityTypePicked = entityTypePicked where entityTypePicked == .Characters else { return false }
+        
+        return indexPath.row == 5
     }
 }
 
