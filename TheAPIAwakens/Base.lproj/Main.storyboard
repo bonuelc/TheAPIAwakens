@@ -308,6 +308,7 @@
                         <outlet property="nameLabel" destination="WQH-rO-QM4" id="Hf1-Kp-coP"/>
                         <outlet property="pickerView" destination="jEN-Vd-ydE" id="vwM-RJ-kZp"/>
                         <outlet property="showcaseTableView" destination="sMF-bw-xBj" id="nPu-jl-uQ2"/>
+                        <segue destination="9A8-GK-1dz" kind="show" identifier="ridesSegue" id="VXS-OG-E9n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5be-BK-CxP" userLabel="First Responder" sceneMemberID="firstResponder"/>
