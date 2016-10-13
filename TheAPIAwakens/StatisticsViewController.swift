@@ -107,10 +107,7 @@ class StatisticsViewController: UIViewController, ExchangeRateDelegate {
         pickerView.userInteractionEnabled = true
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        
-        if let _ = memberStatisticsTableView.indexPathForSelectedRow { return }
-        
+    override func willMoveToParentViewController(parent: UIViewController?) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -311,6 +308,8 @@ extension StatisticsViewController: UITableViewDelegate {
         guard let _ = tableView.dequeueReusableCellWithIdentifier("ridesCell") else {
             return
         }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         performSegueWithIdentifier("ridesSegue", sender: nil)
     }
