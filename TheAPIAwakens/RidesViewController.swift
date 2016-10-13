@@ -25,6 +25,8 @@ class RidesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "\(character.name)'s Rides"
+        
         tableView.dataSource = self
         
         fetchRides()
