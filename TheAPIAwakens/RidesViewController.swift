@@ -81,14 +81,15 @@ class RidesViewController: UIViewController {
 extension RidesViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rides.count
+        
+        return rides.count > 0 ? rides.count : 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
         
-        cell.textLabel?.text = "\(rides[indexPath.row])"
+        cell.textLabel?.text = rides.count > 0 ? "\(rides[indexPath.row])" : "None"
         
         return cell
     }
