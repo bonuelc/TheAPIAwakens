@@ -133,7 +133,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hj1-y6-tYw">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="75" id="Can-7D-qbH"/>
+                                                        <constraint firstAttribute="width" constant="68" id="Can-7D-qbH"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.47843137254901957" green="0.80784313725490198" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -164,7 +164,7 @@
                                                 <constraint firstItem="hj1-y6-tYw" firstAttribute="baseline" secondItem="HMa-YB-UfK" secondAttribute="baseline" id="R0A-5D-HWZ"/>
                                                 <constraint firstItem="ama-wo-gDa" firstAttribute="leading" secondItem="HMa-YB-UfK" secondAttribute="trailing" constant="8" symbolic="YES" id="jAG-ji-uwK"/>
                                                 <constraint firstItem="HMa-YB-UfK" firstAttribute="leading" secondItem="hj1-y6-tYw" secondAttribute="trailing" constant="3" id="oAX-yU-ev2"/>
-                                                <constraint firstItem="hj1-y6-tYw" firstAttribute="leading" secondItem="LBz-e0-0uB" secondAttribute="leadingMargin" id="vX8-Q0-FIN"/>
+                                                <constraint firstItem="hj1-y6-tYw" firstAttribute="leading" secondItem="LBz-e0-0uB" secondAttribute="leadingMargin" constant="7" id="vX8-Q0-FIN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1058823529" green="0.12549019610000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -199,7 +199,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="d2s-V3-OeU" firstAttribute="centerY" secondItem="xpm-fY-Exm" secondAttribute="centerY" id="Dfi-OA-ERz"/>
-                                                <constraint firstItem="d2s-V3-OeU" firstAttribute="leading" secondItem="xpm-fY-Exm" secondAttribute="leadingMargin" id="Feo-kc-ySB"/>
+                                                <constraint firstItem="d2s-V3-OeU" firstAttribute="leading" secondItem="xpm-fY-Exm" secondAttribute="leadingMargin" constant="7" id="Feo-kc-ySB"/>
                                                 <constraint firstItem="jOC-VJ-RUN" firstAttribute="centerY" secondItem="F6G-aH-LWd" secondAttribute="centerY" id="OAe-hY-Jcz"/>
                                                 <constraint firstItem="F6G-aH-LWd" firstAttribute="leading" secondItem="jOC-VJ-RUN" secondAttribute="trailing" constant="8" symbolic="YES" id="RbG-rQ-2A3"/>
                                                 <constraint firstItem="jOC-VJ-RUN" firstAttribute="leading" secondItem="d2s-V3-OeU" secondAttribute="trailing" constant="8" symbolic="YES" id="bvV-LH-ggl"/>
@@ -318,7 +318,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1989" y="386"/>
+            <point key="canvasLocation" x="1987.5" y="385.56338028169017"/>
         </scene>
         <!--Rides View Controller-->
         <scene sceneID="Hw7-zg-Hdi">
