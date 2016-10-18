@@ -13,6 +13,10 @@ enum SWAPI: Endpoint {
     case Characters(apiPageIndex: Int)
     case Vehicles(apiPageIndex: Int)
     case Starships(apiPageIndex: Int)
+    
+    case Character(apiIndex: Int)
+    case Vehicle(apiIndex: Int)
+    case Starship(apiIndex: Int)
     case Planet(apiIndex: Int)
     
     var baseURL: String {
@@ -24,6 +28,10 @@ enum SWAPI: Endpoint {
         case .Characters: return "/api/people/"
         case .Vehicles: return "/api/vehicles/"
         case .Starships: return "/api/starships/"
+        
+        case .Character(let apiIndex): return "/api/people/\(apiIndex)/"
+        case .Vehicle(let apiIndex): return "/api/vehicles/\(apiIndex)/"
+        case .Starship(let apiIndex): return "/api/starships/\(apiIndex)/"
         case .Planet(let apiIndex): return "/api/planets/\(apiIndex)/"
         }
     }
@@ -94,6 +102,27 @@ final class SWAPIClient: APIClient {
             return starships.flatMap { return Starship(JSON: $0) }
             
             }, completion: completion)
+    }
+    
+    func fetchCharacter(apiIndex: Int, completion: APIResult<Character> -> Void) {
+        
+        let endpoint = SWAPI.Character(apiIndex: apiIndex)
+        
+        fetch(endpoint, parse: { Character(JSON: $0) }, completion: completion)
+    }
+    
+    func fetchVehicle(apiIndex: Int, completion: APIResult<Vehicle> -> Void) {
+        
+        let endpoint = SWAPI.Vehicle(apiIndex: apiIndex)
+        
+        fetch(endpoint, parse: { Vehicle(JSON: $0) }, completion: completion)
+    }
+    
+    func fetchStarship(apiIndex: Int, completion: APIResult<Starship> -> Void) {
+        
+        let endpoint = SWAPI.Starship(apiIndex: apiIndex)
+        
+        fetch(endpoint, parse: { Starship(JSON: $0) }, completion: completion)
     }
     
     func fetchPlanet(apiIndex: Int, completion: APIResult<Planet> -> Void) {

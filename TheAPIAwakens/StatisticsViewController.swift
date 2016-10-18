@@ -88,6 +88,7 @@ class StatisticsViewController: UIViewController, ExchangeRateDelegate {
         navigationItem.title = entityTypePicked.rawValue
         
         memberStatisticsTableView.dataSource = self
+        memberStatisticsTableView.delegate = self
         
         pickerView.dataSource = self
         pickerView.delegate = self
@@ -106,8 +107,15 @@ class StatisticsViewController: UIViewController, ExchangeRateDelegate {
         pickerView.userInteractionEnabled = true
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func willMoveToParentViewController(parent: UIViewController?) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let ridesVC = segue.destinationViewController as? RidesViewController {
+            ridesVC.character = characters[pickerView.selectedRowInComponent(0)]
+        }
     }
     
     func presentAlertController(title: String, message: String?) {
@@ -179,13 +187,7 @@ class StatisticsViewController: UIViewController, ExchangeRateDelegate {
 extension StatisticsViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        // 'guard let' necessary b/c of Xcode compiler bug
-        guard let entityTypePicked = entityTypePicked else { fatalError() }
-        
-        switch entityTypePicked {
-        case .Characters: return 5
-        case .Vehicles, .Starships: return 6
-        }
+        return 6
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -227,6 +229,11 @@ extension StatisticsViewController: UITableViewDataSource {
                 case 4:
                     cell.keyLabel.text = "Hair"
                     cell.valueLabel.text = character.hair.capitalizedString
+                case 5:
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier("ridesCell") else {
+                        return UITableViewCell()
+                    }
+                    return cell
                 default: break
                 }
             }
@@ -291,6 +298,28 @@ extension StatisticsViewController: UITableViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension StatisticsViewController: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        guard let _ = tableView.dequeueReusableCellWithIdentifier("ridesCell") else {
+            return
+        }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        performSegueWithIdentifier("ridesSegue", sender: nil)
+    }
+    
+    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        
+        // 'guard let' necessary b/c of Xcode compiler bug
+        guard let entityTypePicked = entityTypePicked where entityTypePicked == .Characters else { return false }
+        
+        return indexPath.row == 5
     }
 }
 
