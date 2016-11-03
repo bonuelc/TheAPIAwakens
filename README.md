@@ -22,6 +22,7 @@ If you would like to be eligible for a rating of “exceeds expectations” you 
 
 # Project Requirements
 
+- You are free to submit this project in either Swift 2.3 or Swift 3. For Swift 2.3, if you are using Xcode 8, you will need to download and use the empty Swift 2.3 starter files template to start your project.
 - Create the appropriate types for people, vehicles and starships. Be sure to consider your options in terms of structs, classes, composition, inheritance, etc...
 - Create asynchronous networking code to download JSON from the SWAPI API. Be sure to make your code reusable for the different entities (people, vehicles, starships) you’ll be displaying.
 - Create logic to parse the JSON and display the names of all members of the entities in the Picker Wheel. You may need to seek outside documentation for guidance on using Pickers.
@@ -38,7 +39,11 @@ If you would like to be eligible for a rating of “exceeds expectations” you 
 
 # Extra Credit
 
-To get an "exceeds" rating, you can expand on the project in the following ways:
+To get an "exceeds" rating, students must implement all of the following features, marked with as Extra Credit in the rubric:
 
+- UI elements are displayed for all screens using highly efficient code/logic.
+- Networking is asynchronous, error handling is robust, and code is well-crafted.
+- Data is displayed for all screens, pickers and fields using highly efficient code/logic.
+- Error handling is particularly robust, comprehensive and well implemented; going above and beyond those specific error types listed in the instructions.
 - Add additional text field such that when you select a person, all associated vehicles and/or starships are listed.
-- Exceptionally well-crafted code will be also considered as a criteria for an exceeds rating
+- API Requests return and then display all results, not just the first page.
