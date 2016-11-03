@@ -79,25 +79,73 @@
 			isa = PBXGroup;
 			children = (
 				853742501D680F44002CCD36 /* AppDelegate.swift */,
-				853742521D680F44002CCD36 /* ViewController.swift */,
-				85DE82E91D9EC6D700C8FE45 /* StatisticsViewController.swift */,
-				85C653DB1DA5ADCD00688C22 /* StatisticTableViewCell.swift */,
-				855601821DAD52A7002EF683 /* ConversionTableViewCell.swift */,
-				85255E4C1DA6C9A500728CFC /* ShowcaseTableView.swift */,
-				8528C6101DAECFF10063AC33 /* RidesViewController.swift */,
-				85DE830B1D9EEC2900C8FE45 /* APIClient.swift */,
-				85DE830D1D9EF0F900C8FE45 /* SWAPIClient.swift */,
+				854C672D1DCB978500DCE65C /* Model */,
+				854C672C1DCB977C00DCE65C /* View */,
+				854C672E1DCB97B100DCE65C /* ViewController */,
+				854C67311DCB990000DCE65C /* Controller */,
+				854C672F1DCB988A00DCE65C /* Resources */,
+				854C67301DCB989600DCE65C /* Supporting Files */,
+			);
+			path = TheAPIAwakens;
+			sourceTree = "<group>";
+		};
+		854C672C1DCB977C00DCE65C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				853742541D680F44002CCD36 /* Main.storyboard */,
+				853742591D680F44002CCD36 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		854C672D1DCB978500DCE65C /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				8546C24F1DA3062900FEB1B8 /* Entity.swift */,
 				85DE830F1D9F0F3400C8FE45 /* Character.swift */,
 				85DE83151DA00FC600C8FE45 /* Vehicle.swift */,
 				85DE83171DA010D500C8FE45 /* Starship.swift */,
 				85DE83191DA0152400C8FE45 /* Planet.swift */,
-				853742541D680F44002CCD36 /* Main.storyboard */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		854C672E1DCB97B100DCE65C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				853742521D680F44002CCD36 /* ViewController.swift */,
+				85DE82E91D9EC6D700C8FE45 /* StatisticsViewController.swift */,
+				8528C6101DAECFF10063AC33 /* RidesViewController.swift */,
+				85C653DB1DA5ADCD00688C22 /* StatisticTableViewCell.swift */,
+				855601821DAD52A7002EF683 /* ConversionTableViewCell.swift */,
+				85255E4C1DA6C9A500728CFC /* ShowcaseTableView.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		854C672F1DCB988A00DCE65C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				853742571D680F44002CCD36 /* Assets.xcassets */,
-				853742591D680F44002CCD36 /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		854C67301DCB989600DCE65C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				8537425C1D680F44002CCD36 /* Info.plist */,
 			);
-			path = TheAPIAwakens;
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		854C67311DCB990000DCE65C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				85DE830B1D9EEC2900C8FE45 /* APIClient.swift */,
+				85DE830D1D9EF0F900C8FE45 /* SWAPIClient.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
