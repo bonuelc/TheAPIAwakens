@@ -12,7 +12,9 @@ protocol ExchangeRateDelegate {
     var exchangeRate: Double { get set }
 }
 
-let cellIdentifier = "statisticCell"
+let statisticCellIdentifier = "statisticCell"
+let conversionCellIdentifier = "conversionCell"
+let ridesCellIdentifier = "ridesCell"
 
 extension Array {
     var secondToLast: Element? {
@@ -191,7 +193,7 @@ extension StatisticsViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? StatisticTableViewCell else {
+        guard let cell = tableView.dequeueReusableCellWithIdentifier(statisticCellIdentifier) as? StatisticTableViewCell else {
             return UITableViewCell()
         }
         
@@ -230,7 +232,7 @@ extension StatisticsViewController: UITableViewDataSource {
                     cell.keyLabel.text = "Hair"
                     cell.valueLabel.text = character.hair.capitalizedString
                 case 5:
-                    guard let cell = tableView.dequeueReusableCellWithIdentifier("ridesCell") else {
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier(ridesCellIdentifier) else {
                         return UITableViewCell()
                     }
                     return cell
@@ -249,7 +251,7 @@ extension StatisticsViewController: UITableViewDataSource {
                     cell.cost = vehicle.cost
                     cell.exchangeRate = exchangeRate
                 case 2:
-                    guard let cell = tableView.dequeueReusableCellWithIdentifier("conversionCell") as? ConversionTableViewCell else {
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier(conversionCellIdentifier) as? ConversionTableViewCell else {
                         return UITableViewCell()
                     }
                     cell.delegate = self
@@ -278,7 +280,7 @@ extension StatisticsViewController: UITableViewDataSource {
                     cell.cost = starship.cost
                     cell.exchangeRate = exchangeRate
                 case 2:
-                    guard let cell = tableView.dequeueReusableCellWithIdentifier("conversionCell") as? ConversionTableViewCell else {
+                    guard let cell = tableView.dequeueReusableCellWithIdentifier(conversionCellIdentifier) as? ConversionTableViewCell else {
                         return UITableViewCell()
                     }
                     cell.delegate = self
@@ -305,7 +307,7 @@ extension StatisticsViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        guard let _ = tableView.dequeueReusableCellWithIdentifier("ridesCell") else {
+        guard let _ = tableView.dequeueReusableCellWithIdentifier(ridesCellIdentifier) else {
             return
         }
         
