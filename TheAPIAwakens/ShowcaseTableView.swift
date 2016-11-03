@@ -19,7 +19,7 @@ extension ShowcaseTableView: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? StatisticTableViewCell else {
+        guard let cell = tableView.dequeueReusableCellWithIdentifier(statisticCellIdentifier) as? StatisticTableViewCell else {
             return UITableViewCell()
         }
         
